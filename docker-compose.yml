@@ -4,7 +4,7 @@ version: "3"
 
 services:
   nginx-proxy:
-    image: lroguet/rpi-nginx-proxy
+    image: traskit/nginx-proxy:latest
     ports:
       - '80:80'
     environment:
