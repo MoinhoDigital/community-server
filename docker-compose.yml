@@ -13,7 +13,7 @@ services:
       - '/var/run/docker.sock:/tmp/docker.sock'
     restart: always
     networks:
-      - proxy
+      - nginx-proxy
   portainer:
     image: portainer/portainer:latest
     restart: always
@@ -21,14 +21,14 @@ services:
       VIRTUAL_HOST: ${PORTAINER_DOMAIN}
       IRTUAL_PORT: 9000
     networks:
-      - proxy
+      - nginx-proxy
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data
   pihole:
     image: pihole/pihole:latest
     networks:
-      - proxy
+      - nginx-proxy
     dns:
       - 127.0.0.1
       - 1.1.1.1
@@ -66,7 +66,7 @@ services:
   influxdb:
     image: influxdb
     networks:
-      - proxy
+      - nginx-proxy
     ports:
       - "8086:8086"
       - "25826:25826/udp"
@@ -78,7 +78,7 @@ services:
   grafana:
     image: grafana/grafana:master-ubuntu
     networks:
-      - proxy
+      - nginx-proxy
     user: "root"
     volumes:
       - ./data/grafana-data:/var/lib/grafana/
