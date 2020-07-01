@@ -2,14 +2,9 @@ version: "3"
 
 services:
   mysql:
-    image: linuxserver/mariadb
+    image: linuxserver/mariadb:latest
     restart: always
     container_name: mysql
-    hostname: mysql
-    # networks:
-    #   - net-backend
-    expose:
-      - 3306
     volumes:
       - db_data:/config
     environment:
@@ -17,21 +12,16 @@ services:
       MYSQL_USER: streama
       MYSQL_DATABASE: streama
       MYSQL_PASSWORD: streama_password
-
   streama:
-    image: streama
+    image: streama:latest
     build: .
     restart: always
     container_name: streama
     hostname: streama
     depends_on:
       - mysql
-    # networks:
-    #   - net-backend
-    ports:
-      - "8080:8080"
     volumes:
-      - $HOME/movies:/data/streama # Change to your video folder
+      - ${MEDIA_DIR}/movies:/data/streama # Change to your video folder
       - app_data:/app/streama
     environment:
       ACTIVE_PROFILE: mysql
@@ -40,9 +30,12 @@ services:
       MYSQL_DB: streama
       MYSQL_USER: streama
       MYSQL_PASSWORD: streama_password
-# networks:
-#   net-backend:
-
+      VIRTUAL_HOST: ${STREAMA_DOMAIN}
+      VIRTUAL_PORT: 8080
+networks:
+  default:
+    external:
+      name: nginx-proxy
 volumes:
   db_data:
   app_data:

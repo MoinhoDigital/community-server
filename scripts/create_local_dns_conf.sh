@@ -7,5 +7,7 @@ cname=grafana,moinho
 cname=grafana.thisnode.info,moinho.thisnode.info
 cname=pihole,moinho
 cname=pihole.thisnode.info,moinho.thisnode.info
+cname=flix,moinho
+cname=flix.thisnode.info,moinho.thisnode.info
 EOT
 /etc/init.d/dnsmasq restart

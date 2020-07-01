@@ -94,7 +94,9 @@ services:
 volumes:
   portainer_data:
 networks:
-  proxy:
+  nginx-proxy:
+    external:
+      name: nginx-proxy
 
 #   Another container you might want to have running through the proxy
 #   Note it also have ENV Vars like pihole and a host under pihole's extra_hosts
