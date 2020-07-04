@@ -1,0 +1,21 @@
+version: "3"
+services:
+  jellyfin:
+    image: jellyfin/jellyfin
+    volumes:
+        - ./config:/config
+        - /mnt/usb/jellyfin/cache:/cache
+        - /mnt/usb/jellyfin/media:/media
+        - /opt/vc/lib:/opt/vc/lib
+    environment:
+        PUID: 1000
+        PGID: 1000
+        VIRTUAL_HOST: flix.thisnode.info
+        VIRTUAL_PORT: 8096
+    devices:
+      - /dev/vchiq:/dev/vchiq #hardware acceleration for Rasp
+      - /dev/vcsm:/dev/vcsm #hardware acceleration for Rasp
+networks:
+  default:
+    external:
+      name: nginx-proxy

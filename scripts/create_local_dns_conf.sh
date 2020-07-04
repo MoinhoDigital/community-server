@@ -9,5 +9,9 @@ cname=pihole,moinho
 cname=pihole.thisnode.info,moinho.thisnode.info
 cname=flix,moinho
 cname=flix.thisnode.info,moinho.thisnode.info
+cname=feedless,moinho
+cname=feedless.thisnode.info,moinho.thisnode.info
+cname=kolibri,moinho
+cname=kolibri.thisnode.info,moinho.thisnode.info
 EOT
 /etc/init.d/dnsmasq restart
