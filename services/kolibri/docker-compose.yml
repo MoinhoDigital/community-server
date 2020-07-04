@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  kolibri:
+     build: .
+     restart: always
+     ports:
+        - "8080:8080"
+     environment:
+        VIRTUAL_HOST: kolibri.thisnode.info
+        VIRTUAL_PORT: 8080
+networks:
+  default:
+    external:
+      name: nginx-proxy
