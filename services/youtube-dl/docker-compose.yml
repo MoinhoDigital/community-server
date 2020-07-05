@@ -4,6 +4,12 @@ services:
   youtubedl:
      build: .
      restart: always
+     volumes:
+        - ./appdata:/app/appdata
+        - /mnt/usb/jellyfin/media/youtubedl-audio:/app/audio
+        - /mnt/usb/jellyfin/media/youtubedl-video:/app/video
+        - ./subscriptions:/app/subscriptions
+        - ./users:/app/users
      environment:
         VIRTUAL_HOST: dl.thisnode.info
         VIRTUAL_PORT: 17442
