@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  youtubedl:
+     build: .
+     restart: always
+     environment:
+        VIRTUAL_HOST: dl.thisnode.info
+        VIRTUAL_PORT: 17442
+networks:
+  default:
+    external:
+      name: nginx-proxy
