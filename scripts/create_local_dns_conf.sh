@@ -13,5 +13,7 @@ cname=feedless,moinho
 cname=feedless.thisnode.info,moinho.thisnode.info
 cname=kolibri,moinho
 cname=kolibri.thisnode.info,moinho.thisnode.info
+cname=dl,moinho
+cname=dl.thisnode.info,moinho.thisnode.info
 EOT
 /etc/init.d/dnsmasq restart
