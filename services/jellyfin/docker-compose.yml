@@ -2,6 +2,7 @@ version: "3"
 services:
   jellyfin:
     image: jellyfin/jellyfin
+    restart: unless-stopped 
     volumes:
         - ./config:/config
         - /mnt/usb/jellyfin/cache:/cache
