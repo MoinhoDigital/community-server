@@ -15,5 +15,7 @@ cname=kolibri,moinho
 cname=kolibri.thisnode.info,moinho.thisnode.info
 cname=dl,moinho
 cname=dl.thisnode.info,moinho.thisnode.info
+cname=map-api,moinho
+cname=map-api.thisnode.info,moinho.thisnode.info
 EOT
 /etc/init.d/dnsmasq restart

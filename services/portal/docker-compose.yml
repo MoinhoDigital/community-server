@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+  # npm:
+  #   container_name: npm
+  #   build:
+  #     context: ./community-portal-master
+  #     dockerfile: Dockerfile
+  #   restart: unless-stopped
+  #   user: user
+  #   entrypoint: npm
+  #   working_dir: /home/user/app
+  #   command: npm run build
+  #   volumes:
+  #       - .:/home/user/app
+  portal:
+    container_name: portal
+    image: httpd:latest
+    restart: unless-stopped
+    volumes:
+      - ./dist:/usr/local/apache2/htdocs/
+    environment:
+      VIRTUAL_HOST: moinho.thisnode.info
+      VIRTUAL_PORT: 3001
+  api:
+    container_name: api
+    image: tile-server
+    restart: unless-stopped
+    environment:
+      VIRTUAL_HOST: map-api.thisnode.info
+      VIRTUAL_PORT: 3000
+networks:
+  default:
+    external:
+      name: nginx-proxy
