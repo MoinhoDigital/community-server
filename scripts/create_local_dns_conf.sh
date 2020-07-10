@@ -17,5 +17,7 @@ cname=dl,moinho
 cname=dl.thisnode.info,moinho.thisnode.info
 cname=map-api,moinho
 cname=map-api.thisnode.info,moinho.thisnode.info
+cname=cadvisor,moinho
+cname=cadvisor.thisnode.info,moinho.thisnode.info
 EOT
 /etc/init.d/dnsmasq restart
