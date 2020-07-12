@@ -1,0 +1,30 @@
+server { 
+  server_name cursos.moinho.com;
+
+  # app1 reverse proxy follow
+  proxy_set_header X-Real-IP $remote_addr;
+  proxy_set_header Host $host;
+  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  proxy_pass http://10.147.249.54:8080;
+
+}
+
+server { 
+  server_name moinho.com;
+
+    root /www/data;
+
+    location / {
+    }
+
+}
+
+server { 
+  server_name map-api.moinho.com;
+
+  # app2 reverse proxy settings follow
+  proxy_set_header X-Real-IP $remote_addr;
+  proxy_set_header Host $host;
+  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  proxy_pass http://10.147.249.54:3000;
+}

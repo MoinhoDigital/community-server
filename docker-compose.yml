@@ -56,10 +56,10 @@ services:
       # Resolve to nothing domains (terminate connection)
       - 'nw2master.bioware.com nwn2.master.gamespy.com:0.0.0.0'
       # LAN hostnames for other docker containers using jwilder
-      - 'moinho.lan:${SERVER_IP}'
-      - 'pihole ${PIHOLE_DOMAIN}:${SERVER_IP}'
-      - 'portainer ${PORTAINER_DOMAIN}:${SERVER_IP}'
-      - 'grafana ${GRAFANA_DOMAIN}:${SERVER_IP}'
+      - 'moinho.com:${SERVER_IP}'
+      - 'filtro ${PIHOLE_DOMAIN}:${SERVER_IP}'
+      - 'admin ${PORTAINER_DOMAIN}:${SERVER_IP}'
+      - 'rede ${GRAFANA_DOMAIN}:${SERVER_IP}'
       # - 'ghost ghost.moinho.lan:${SERVER_IP}'
       # - 'wordpress wordpress.moinho.lan:${SERVER_IP}'
     restart: always
