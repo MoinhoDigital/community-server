@@ -4,14 +4,14 @@ services:
     image: jellyfin/jellyfin
     restart: unless-stopped 
     volumes:
-        - ./config:/config
-        - /mnt/usb/jellyfin/cache:/cache
-        - /mnt/usb/jellyfin/media:/media
+        - ${MEDIA_DIR}/jellyfin/config:/config
+        - ${MEDIA_DIR}/jellyfin/cache:/cache
+        - ${MEDIA_DIR}/jellyfin/media:/media
         - /opt/vc/lib:/opt/vc/lib
     environment:
         PUID: 1000
         PGID: 1000
-        VIRTUAL_HOST: flix.thisnode.info
+        VIRTUAL_HOST: ${JELLYFIN_DOMAIN}
         VIRTUAL_PORT: 8096
     devices:
       - /dev/vchiq:/dev/vchiq #hardware acceleration for Rasp

@@ -20,14 +20,14 @@ services:
     volumes:
       - ./dist:/usr/local/apache2/htdocs/
     environment:
-      VIRTUAL_HOST: moinho.thisnode.info
+      VIRTUAL_HOST: ${PORTAL_DOMAIN}
       VIRTUAL_PORT: 3001
   api:
     container_name: api
     image: tile-server
     restart: unless-stopped
     environment:
-      VIRTUAL_HOST: map-api.thisnode.info
+      VIRTUAL_HOST: ${TILE_SERVER_DOMAIN}
       VIRTUAL_PORT: 3000
 networks:
   default:

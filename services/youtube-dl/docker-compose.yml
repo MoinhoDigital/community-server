@@ -6,12 +6,12 @@ services:
      restart: always
      volumes:
         - ./appdata:/app/appdata
-        - /mnt/usb/jellyfin/media/youtubedl-audio:/app/audio
-        - /mnt/usb/jellyfin/media/youtubedl-video:/app/video
+        - ${MEDIA_DIR}/jellyfin/media/youtubedl-audio:/app/audio
+        - ${MEDIA_DIR}/jellyfin/media/youtubedl-video:/app/video
         - ./subscriptions:/app/subscriptions
         - ./users:/app/users
      environment:
-        VIRTUAL_HOST: dl.thisnode.info
+        VIRTUAL_HOST: ${YOUTUBE_DL_DOMAIN}
         VIRTUAL_PORT: 17442
 networks:
   default:
