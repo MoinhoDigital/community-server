@@ -3,17 +3,15 @@ version: '3'
 services:
   tube:
     container_name: tube
-    image: prologic/tube
+    image: prologic/tube:latest
     restart: unless-stopped
     volumes:
-      - ./data:/data # Tube data
+      - ${MEDIA_DIR}/tube:/data # Tube data
     environment:
-      VIRTUAL_HOST: ${DOMAINS}
-      LETSENCRYPT_HOST: ${DOMAINS}
-      LETSENCRYPT_EMAIL: ${LETSENCRYPT_EMAIL}
-networks:
-  default:
-    external:
-      name: ${NETWORK}
+      VIRTUAL_HOST: ${TUBE_DOMAIN}
+    networks:
+      - proxy
 volumes:
   db_data:
+networks:
+  proxy:
