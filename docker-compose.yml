@@ -27,6 +27,7 @@ services:
       - portainer_data:/data
   pihole:
     image: pihole/pihole:latest
+    priviledged: true
     networks:
       - nginx-proxy
     dns:
