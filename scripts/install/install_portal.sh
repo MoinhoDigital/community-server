@@ -6,10 +6,10 @@ git clone https://github.com/MoinhoDigital/tile-server.git
 git clone https://github.com/MoinhoDigital/community-portal.git
 cd community-portal
 cp example.env .env
-npm i && npm run build
+yarn && yarn build:local
 
 cd ../tile-server
-npm i
+yarn
 cd ..
 pm2 serve --spa --name "portal" ./community-portal/dist 3001 
 pm2 start ./tile-server --name "tile-server"

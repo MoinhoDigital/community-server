@@ -1,23 +1,23 @@
 #!/bin/bash
 
 cat <<EOT >> /etc/dnsmasq.d/local_server.conf
-cname=portainer,moinho
-cname=portainer.thisnode.info,moinho.thisnode.info
-cname=grafana,moinho
-cname=grafana.thisnode.info,moinho.thisnode.info
-cname=pihole,moinho
-cname=pihole.thisnode.info,moinho.thisnode.info
+cname=admin,moinho
+cname=admin.moinho.com,rock64.thisnode.info
+cname=rede,moinho
+cname=rede.moinho.com,rock64.thisnode.info
+cname=filtro,moinho
+cname=filtro.moinho.com,rock64.thisnode.info
 cname=flix,moinho
-cname=flix.thisnode.info,moinho.thisnode.info
+cname=flix.moinho.com,rock64.thisnode.info
 cname=feedless,moinho
-cname=feedless.thisnode.info,moinho.thisnode.info
-cname=kolibri,moinho
-cname=kolibri.thisnode.info,moinho.thisnode.info
-cname=dl,moinho
-cname=dl.thisnode.info,moinho.thisnode.info
-cname=map-api,moinho
-cname=map-api.thisnode.info,moinho.thisnode.info
-cname=cadvisor,moinho
-cname=cadvisor.thisnode.info,moinho.thisnode.info
+cname=feedless.moinho.com,rock64.thisnode.info
+cname=cursos,moinho
+cname=cursos.moinho.com,rock64.thisnode.info
+cname=baixar,moinho
+cname=baixar.moinho.com,rock64.thisnode.info
+cname=api-mapa,moinho
+cname=api-mapa.moinho.com,rock64.thisnode.info
+cname=status,moinho
+cname=status.moinho.com,rock64.thisnode.info
 EOT
 /etc/init.d/dnsmasq restart
