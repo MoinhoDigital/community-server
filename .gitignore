@@ -5,6 +5,7 @@
 
 ### Data ###
 data/
+configs/
 
 ### dotenv ###
 .env
