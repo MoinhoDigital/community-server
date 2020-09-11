@@ -6,6 +6,5 @@ curl -fsSL https://get.docker.com -o get-docker.sh && sudo gpasswd -a $USER dock
 sudo apt update -y
 sudo apt install -y exfat-fuse ntfs-3g
 sudo apt install -y vim git libffi-dev libssl-dev gcc
-sudo apt install -qy python-pip --no-install-recommends
-pip install pip --upgrade
-pip install docker-compose
+sudo apt install -y python3-pip
+pip3 install docker-compose
