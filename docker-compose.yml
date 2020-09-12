@@ -6,7 +6,7 @@ services:
     ports:
       - '80:80'
     environment:
-      DEFAULT_HOST: ${PIHOLE_DOMAIN}
+      DEFAULT_HOST: ${DOMAIN}
     volumes:
       - '/var/run/docker.sock:/tmp/docker.sock'
     restart: always
