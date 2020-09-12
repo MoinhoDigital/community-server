@@ -1,0 +1,46 @@
+version: '3'
+services:
+  influxdb:
+    image: influxdb
+    ports:
+      - "8086:8086"
+      - "25826:25826/udp"
+    volumes:
+      - ./data/influxdb-data:/var/lib/influxdb
+      - ./configs/influxdb/:/etc/influxdb/
+      - ./configs/influxdb/types.db:/usr/share/collectd/types.db:ro
+    restart: always
+
+
+  grafana:
+    image: grafana/grafana:master-ubuntu
+    user: "root"
+    volumes:
+      - ./data/grafana-data:/var/lib/grafana/
+      - ./configs/grafana/datasource.yaml:/etc/grafana/provisioning/datasources/datasource.yaml         
+      - ./configs/grafana/dashboard.yaml:/etc/grafana/provisioning/dashboards/dashboard.yaml            
+      - ./configs/grafana/dashboards:/var/lib/grafana/dashboards/                                       
+    environment:
+      VIRTUAL_HOST: ${GRAFANA_DOMAIN}
+      VIRTUAL_PORT: 3000
+    depends_on:
+      - influxdb
+    restart: always
+  
+
+  collectd:
+# Para Raspies 3 e 4 
+# https://hub.docker.com/r/tringler/rpi-collectd
+    image: tringler/rpi-collectd:5.8.0
+# Para PC x86
+# https://hub.docker.com/r/fr3nd/collectd/
+#   image: fr3nd/collectd
+    privileged: true
+    volumes:
+      - /proc:/mnt/proc:ro
+      - ./configs/collectd/:/etc/collectd/
+networks:
+  nginx-proxy:
+    external:
+      name: nginx-proxy
+
