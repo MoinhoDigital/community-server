@@ -6,7 +6,4 @@ sudo gpasswd -a $USER docker && sudo chmod 664 /var/run/docker.sock
 # Install dependencies and docker-compose
 sudo apt update -y
 sudo apt install -y exfat-fuse ntfs-3g
-sudo apt install -y vim git libffi-dev libssl-dev gcc
-sudo apt install -qy python-pip --no-install-recommends
-pip install pip --upgrade
-pip install docker-compose
+sudo apt install -y vim git libffi-dev libssl-dev gcc docker-compose
