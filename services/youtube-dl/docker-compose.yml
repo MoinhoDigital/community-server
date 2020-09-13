@@ -2,7 +2,7 @@ version: "3"
 
 services:
   youtubedl:
-     build: .
+     build: YoutubeDL-Material-master
      restart: always
      volumes:
         - ${MEDIA_DIR}/youtube-dl/appdata:/app/appdata
