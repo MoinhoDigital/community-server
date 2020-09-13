@@ -24,7 +24,7 @@ services:
       VIRTUAL_PORT: 3001
   api:
     container_name: api
-    image: tile-server
+    build: tile-server-master
     restart: unless-stopped
     environment:
       VIRTUAL_HOST: ${TILE_SERVER_DOMAIN}
