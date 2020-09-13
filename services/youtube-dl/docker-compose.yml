@@ -5,11 +5,11 @@ services:
      build: .
      restart: always
      volumes:
-        - ./appdata:/app/appdata
+        - ${MEDIA_DIR}/youtube-dl/appdata:/app/appdata
         - ${MEDIA_DIR}/jellyfin/media/youtubedl-audio:/app/audio
         - ${MEDIA_DIR}/jellyfin/media/youtubedl-video:/app/video
-        - ./subscriptions:/app/subscriptions
-        - ./users:/app/users
+        - ${MEDIA_DIR}/youtube-dl/subscriptions:/app/subscriptions
+        - ${MEDIA_DIR}/youtube-dl/users:/app/users
      environment:
         VIRTUAL_HOST: ${YOUTUBE_DL_DOMAIN}
         VIRTUAL_PORT: 17442
