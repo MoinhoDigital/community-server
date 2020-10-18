@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# TODO: check for fails and retry; hide spam from end user, show only on debug mode
 # Install Docker and add user to docker group
 curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
 sudo gpasswd -a $USER docker && sudo chmod 664 /var/run/docker.sock

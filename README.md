@@ -18,16 +18,21 @@
 - `docker-compose up -d`
 - Configure router to use pihole: `scripts/set_pi_hole.sh`
 
-### [Streama](https://github.com/streamaserver/streama): media streaming
+### [Jellyfin](https://jellyfin.org/): media streaming
 
-- `cd services/streama`
-- Edit `.env` file: `cp .env.xample .env`
+- `cd services/jellyfin`
+-  Copy environment variables file: `cp .env.xample .env`
+- Edit `.env` with your information
 - `docker-compose up -d`
 
 TODO:
 
-- Auto-mount USB script
+- Scripts:
+  - Install Docker/Docker-compose
+  - Install native
+  - Add service 
+  - Remove service
+  - Auto-mount USB script
 - Services:
   - [Etherpad](https://github.com/ether/etherpad-lite)
   - [tube](https://github.com/prologic/tube)
-  - [youtube-dl]()
