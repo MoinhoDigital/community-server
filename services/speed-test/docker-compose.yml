@@ -1,0 +1,17 @@
+version: '3'
+services:
+  speedtest:
+    container_name: speedtest
+    build: docker-speedtest-analyser-master/
+    restart: unless-stopped
+    volumes:
+      -  ${MEDIA_DIR}/speed-test:/var/www/html/data
+    environment:
+      VIRTUAL_HOST: net.moinho.com
+      CRONJOB_ITERATION: 15
+      SPEEDTEST_PARAMS: '--secure'
+networks:
+  default:
+    external:
+      name: nginx-proxy
+
