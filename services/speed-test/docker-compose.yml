@@ -7,8 +7,8 @@ services:
     volumes:
       -  ${MEDIA_DIR}/speed-test:/var/www/html/data
     environment:
-      VIRTUAL_HOST: net.moinho.com
-      CRONJOB_ITERATION: 15
+      VIRTUAL_HOST: ${DOMAIN}
+      CRONJOB_ITERATION: ${SPEEDTEST_SPEEDTEST_INTERVAL}
       SPEEDTEST_PARAMS: '--secure'
 networks:
   default:
