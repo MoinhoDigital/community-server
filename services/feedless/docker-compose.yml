@@ -1,0 +1,17 @@
+version: "3"
+services:
+  feedless:
+    build: ./app/web
+    restart: always
+    network_mode: host
+    env_file: .env
+    volumes:
+      - feedless_ssb:/root/.ssb
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
+volumes:
+  feedless_ssb:
+
