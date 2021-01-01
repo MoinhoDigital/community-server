@@ -1,7 +1,7 @@
 version: "3"
 services:
   feedless:
-    build: feedless-master/web
+    build: rede-social-comunitaria-master/web
     restart: always
     network_mode: host
     env_file: .env
