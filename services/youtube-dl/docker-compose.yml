@@ -2,7 +2,7 @@ version: "3"
 
 services:
   youtubedl:
-     build: YoutubeDL-Material-master
+     image: tzahi12345/youtubedl-material:nightly
      restart: always
      volumes:
         - ${MEDIA_DIR}/youtube-dl/appdata:/app/appdata
